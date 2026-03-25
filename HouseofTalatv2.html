@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>House of Talat — Defined by Elegance</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #C4973A;
+    --gold-light: #E8C97A;
+    --gold-pale: #FAF3E0;
+    --dark: #1A0F06;
+    --dark2: #2D1A08;
+    --mid: #7A5C38;
+    --cream: #FDF8F0;
+    --cream2: #F5EDD8;
+    --white: #FFFFFF;
+    --gray: #888070;
+    --border: rgba(196,151,58,0.25);
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Jost', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+  /* ── ANNOUNCEMENT BAR ── */
+  .announce {
+    background: var(--dark);
+    color: var(--gold-light);
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 9px 16px;
+    font-family: var(--font-body);
+    font-weight: 400;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(253,248,240,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 64px;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 22px; font-weight: 600;
+    color: var(--dark); letter-spacing: 3px;
+    text-transform: uppercase; text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex; gap: 28px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--dark); text-decoration: none; font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .nav-cart {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--dark); cursor: pointer; text-decoration: none;
+    border: 0.5px solid var(--border); padding: 7px 14px; border-radius: 20px;
+    transition: all 0.2s;
+  }
+  .nav-cart:hover { background: var(--gold-pale); border-color: var(--gold); }
+  .nav-wa {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--dark); color: var(--gold-light);
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 8px 16px; border-radius: 20px; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .nav-wa:hover { background: var(--dark2); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 92vh;
+    background: linear-gradient(160deg, #1A0F06 0%, #2D1A08 40%, #3D2510 70%, #1A0F06 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C4973A' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.6;
+  }
+  .hero-ornament {
+    width: 120px; margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 1s ease 0.2s forwards;
+  }
+  .hero-tag {
+    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); font-family: var(--font-body); font-weight: 400;
+    margin-bottom: 16px;
+    opacity: 0; animation: fadeUp 1s ease 0.4s forwards;
+  }
+  .hero-title {
+    font-family: var(--font-display); font-size: clamp(52px, 12vw, 96px);
+    font-weight: 300; color: var(--cream); letter-spacing: 8px;
+    text-transform: uppercase; line-height: 1;
+    margin-bottom: 6px;
+    opacity: 0; animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .hero-title em { font-style: italic; color: var(--gold-light); font-weight: 300; }
+  .hero-sub {
+    font-family: var(--font-display); font-size: clamp(16px, 3vw, 22px);
+    font-style: italic; color: var(--gold-light); letter-spacing: 2px;
+    margin-bottom: 40px;
+    opacity: 0; animation: fadeUp 1s ease 0.6s forwards;
+  }
+  .hero-divider {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 40px;
+    opacity: 0; animation: fadeUp 1s ease 0.7s forwards;
+  }
+  .hero-divider-line { width: 60px; height: 0.5px; background: var(--gold); opacity: 0.5; }
+  .hero-divider-gem { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
+  .hero-btns {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    opacity: 0; animation: fadeUp 1s ease 0.8s forwards;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--dark);
+    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+    padding: 14px 32px; border-radius: 2px; text-decoration: none;
+    font-weight: 500; transition: all 0.25s;
+    border: 1px solid var(--gold);
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline {
+    background: transparent; color: var(--cream);
+    font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+    padding: 14px 32px; border-radius: 2px; text-decoration: none;
+    font-weight: 400; border: 0.5px solid rgba(232,201,122,0.4);
+    transition: all 0.25s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--dark);
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 18px 32px;
+    border-right: 0.5px solid rgba(196,151,58,0.2);
+    flex: 1; min-width: 160px; justify-content: center;
+  }
+  .trust-item:last-child { border-right: none; }
+  .trust-icon { font-size: 18px; }
+  .trust-text { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-light); font-weight: 400; }
+
+  /* ── SECTION HEADER ── */
+  .section { padding: 72px 24px; }
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-tag {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 10px; display: block;
+  }
+  .section-title {
+    font-family: var(--font-display); font-size: clamp(28px, 5vw, 44px);
+    font-weight: 300; color: var(--dark); letter-spacing: 2px;
+    line-height: 1.2;
+  }
+  .section-title em { font-style: italic; color: var(--mid); }
+  .section-line {
+    display: flex; align-items: center; gap: 12px;
+    justify-content: center; margin-top: 16px;
+  }
+  .section-line-bar { width: 40px; height: 0.5px; background: var(--gold); opacity: 0.6; }
+  .section-line-gem { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); opacity: 0.8; }
+
+  /* ── COLLECTION FILTER ── */
+  .filter-wrap {
+    display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 40px;
+  }
+  .filter-btn {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 8px 18px; border-radius: 20px; cursor: pointer;
+    border: 0.5px solid var(--border); background: transparent;
+    color: var(--mid); font-family: var(--font-body);
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--dark); color: var(--gold-light);
+    border-color: var(--dark);
+  }
+
+  /* ── PRODUCT GRID ── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .product-card {
+    background: var(--white);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card:hover { transform: translateY(-4px); z-index: 2; }
+  .product-card:hover .product-overlay { opacity: 1; }
+  .product-card:hover .product-img { transform: scale(1.04); }
+  .product-img-wrap { position: relative; overflow: hidden; aspect-ratio: 1; }
+  .product-img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+    background: var(--cream2);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .product-img-placeholder {
+    width: 100%; aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--cream2) 0%, var(--gold-pale) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 32px;
+    color: var(--gold); transition: transform 0.5s ease;
+  }
+  .product-card:hover .product-img-placeholder { transform: scale(1.04); }
+  .product-overlay {
+    position: absolute; inset: 0;
+    background: rgba(26,15,6,0.45);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .overlay-btn {
+    background: var(--gold); color: var(--dark);
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 12px 24px; border-radius: 2px;
+    font-family: var(--font-body); font-weight: 500;
+    border: none; cursor: pointer;
+    transform: translateY(8px);
+    transition: transform 0.3s;
+  }
+  .product-card:hover .overlay-btn { transform: translateY(0); }
+  .product-badge {
+    position: absolute; top: 12px; left: 12px;
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 2px;
+    font-family: var(--font-body); font-weight: 500;
+  }
+  .badge-bestseller { background: var(--gold); color: var(--dark); }
+  .badge-new        { background: var(--dark); color: var(--gold-light); }
+  .badge-bridal     { background: #6B3D6B; color: #F0D4F0; }
+  .badge-heritage   { background: #5C3317; color: #E8C97A; }
+  .product-info { padding: 16px 18px 20px; }
+  .product-collection {
+    font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 5px;
+  }
+  .product-name {
+    font-family: var(--font-display); font-size: 18px;
+    font-weight: 400; color: var(--dark); margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .product-desc {
+    font-size: 12px; color: var(--gray); line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .product-footer {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .product-price {
+    font-family: var(--font-display); font-size: 20px;
+    font-weight: 600; color: var(--dark);
+  }
+  .add-btn {
+    background: var(--dark); color: var(--gold-light);
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 9px 16px; border-radius: 2px; border: none;
+    font-family: var(--font-body); cursor: pointer;
+    transition: all 0.2s;
+  }
+  .add-btn:hover { background: var(--gold); color: var(--dark); }
+
+  /* ── HOW TO ORDER ── */
+  .how-section { background: var(--dark); padding: 72px 24px; }
+  .how-section .section-title { color: var(--cream); }
+  .how-section .section-tag { color: var(--gold); }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px; max-width: 960px; margin: 0 auto;
+    background: rgba(196,151,58,0.15);
+  }
+  .step-card {
+    background: var(--dark); padding: 40px 28px;
+    text-align: center;
+  }
+  .step-num {
+    font-family: var(--font-display); font-size: 52px;
+    color: rgba(196,151,58,0.2); font-weight: 300;
+    line-height: 1; margin-bottom: 16px;
+  }
+  .step-icon { font-size: 28px; margin-bottom: 14px; }
+  .step-title {
+    font-family: var(--font-display); font-size: 18px;
+    color: var(--cream); font-weight: 400; margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .step-desc { font-size: 12px; color: var(--gray); line-height: 1.7; }
+  .step-cta-wrap { text-align: center; margin-top: 40px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-wa {
+    display: flex; align-items: center; gap: 8px;
+    background: #25D366; color: white;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 14px 28px; border-radius: 2px; text-decoration: none;
+    font-weight: 500; transition: all 0.2s;
+  }
+  .btn-wa:hover { background: #1ebe5d; }
+  .btn-ig {
+    display: flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--gold-light);
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 14px 28px; border-radius: 2px; text-decoration: none;
+    font-weight: 400; border: 0.5px solid rgba(232,201,122,0.4);
+    transition: all 0.2s;
+  }
+  .btn-ig:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section { background: var(--cream2); padding: 72px 24px; }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px; max-width: 1000px; margin: 0 auto;
+  }
+  .review-card {
+    background: var(--white);
+    padding: 28px 24px;
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    position: relative;
+  }
+  .review-quote {
+    font-family: var(--font-display); font-size: 60px;
+    color: var(--gold); opacity: 0.2; line-height: 0.6;
+    margin-bottom: 16px; display: block;
+  }
+  .review-text {
+    font-family: var(--font-display); font-size: 15px;
+    font-style: italic; color: var(--dark);
+    line-height: 1.7; margin-bottom: 20px;
+  }
+  .review-stars { color: var(--gold); font-size: 13px; margin-bottom: 10px; letter-spacing: 2px; }
+  .review-author { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid); }
+  .review-occasion { font-size: 10px; color: var(--gray); margin-top: 2px; }
+  .reviews-count {
+    text-align: center; margin-top: 32px;
+    font-family: var(--font-display); font-size: 15px;
+    font-style: italic; color: var(--mid);
+  }
+
+  /* ── ABOUT ── */
+  .about-section {
+    background: var(--cream);
+    padding: 72px 24px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .about-inner {
+    max-width: 680px; text-align: center;
+  }
+  .about-body {
+    font-family: var(--font-display); font-size: 18px;
+    font-style: italic; color: var(--dark);
+    line-height: 1.9; margin-bottom: 28px;
+  }
+  .about-detail {
+    font-size: 13px; color: var(--mid); line-height: 1.8; margin-bottom: 32px;
+  }
+  .about-stats {
+    display: flex; justify-content: center; gap: 48px;
+    flex-wrap: wrap; margin-top: 32px;
+    padding-top: 32px; border-top: 0.5px solid var(--border);
+  }
+  .about-stat-num {
+    font-family: var(--font-display); font-size: 36px;
+    font-weight: 300; color: var(--gold); display: block;
+  }
+  .about-stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: var(--cream);
+    padding: 56px 24px 32px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px; max-width: 1100px; margin: 0 auto 48px;
+  }
+  .footer-brand-name {
+    font-family: var(--font-display); font-size: 24px;
+    font-weight: 600; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--cream); margin-bottom: 12px;
+  }
+  .footer-brand-name span { color: var(--gold); }
+  .footer-tagline {
+    font-family: var(--font-display); font-style: italic;
+    color: var(--gold-light); font-size: 13px; margin-bottom: 16px;
+  }
+  .footer-desc { font-size: 12px; color: var(--gray); line-height: 1.8; margin-bottom: 20px; }
+  .footer-social { display: flex; gap: 10px; }
+  .social-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.06); border: 0.5px solid rgba(196,151,58,0.3);
+    color: var(--gold-light); font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 8px 14px; border-radius: 2px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .social-btn:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+  .footer-col-title {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px; font-weight: 500;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a {
+    font-size: 12px; color: var(--gray); text-decoration: none;
+    transition: color 0.2s; line-height: 1.5;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 0.5px solid rgba(196,151,58,0.2);
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .footer-copy { font-size: 11px; color: var(--gray); }
+  .footer-policy { display: flex; gap: 20px; }
+  .footer-policy a { font-size: 11px; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+  .footer-policy a:hover { color: var(--gold); }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none;
+    position: fixed; inset: 0; z-index: 200;
+    background: var(--dark);
+    flex-direction: column;
+    padding: 24px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu-close {
+    align-self: flex-end; background: none; border: none;
+    color: var(--gold); font-size: 28px; cursor: pointer; margin-bottom: 40px;
+  }
+  .mobile-menu-links { display: flex; flex-direction: column; gap: 0; }
+  .mobile-menu-links a {
+    font-family: var(--font-display); font-size: 32px;
+    font-weight: 300; color: var(--cream); text-decoration: none;
+    padding: 16px 0; border-bottom: 0.5px solid rgba(196,151,58,0.2);
+    transition: color 0.2s; letter-spacing: 1px;
+  }
+  .mobile-menu-links a:hover { color: var(--gold); }
+  .mobile-menu-contact {
+    margin-top: 40px; display: flex; flex-direction: column; gap: 12px;
+  }
+
+  /* ── SHIPPING BANNER ── */
+  .shipping-banner {
+    background: var(--gold-pale);
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    padding: 16px 24px;
+    max-width: 960px;
+    margin: 0 auto 48px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 32px; flex-wrap: wrap; text-align: center;
+  }
+  .ship-item { font-size: 12px; color: var(--mid); }
+  .ship-item strong { color: var(--dark); font-weight: 500; display: block; margin-bottom: 2px; font-size: 13px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-cart  { display: none; }
+    .hamburger { display: flex; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .hero-title { letter-spacing: 4px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; }
+    .trust-item { padding: 14px 16px; min-width: 120px; }
+    .about-stats { gap: 28px; }
+  }
+  @media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .product-grid { grid-template-columns: 1fr 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .section { padding: 48px 16px; }
+    nav { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Announcement -->
+<div class="announce">✦ Worldwide Shipping Available &nbsp;·&nbsp; DM to Order &nbsp;·&nbsp; Heirloom Jewellery Crafted with Love ✦</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">House <span>of</span> Talat</a>
+  <ul class="nav-links">
+    <li><a href="#collections">Collections</a></li>
+    <li><a href="#how-to-order">How to Order</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://wa.me/91XXXXXXXXXX" class="nav-wa" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">×</button>
+  <nav class="mobile-menu-links">
+    <a href="#collections" onclick="document.getElementById('mobileMenu').classList.remove('open')">Collections</a>
+    <a href="#how-to-order" onclick="document.getElementById('mobileMenu').classList.remove('open')">How to Order</a>
+    <a href="#reviews" onclick="document.getElementById('mobileMenu').classList.remove('open')">Reviews</a>
+    <a href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">About</a>
+    <a href="#contact" onclick="document.getElementById('mobileMenu').classList.remove('open')">Contact</a>
+  </nav>
+  <div class="mobile-menu-contact">
+    <a href="https://wa.me/91XXXXXXXXXX" class="btn-wa" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us
+    </a>
+    <a href="https://instagram.com/houseoftalat.in" class="btn-ig" target="_blank">@houseoftalat.in</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <svg class="hero-ornament" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M60 5 L65 20 L80 20 L68 30 L73 45 L60 36 L47 45 L52 30 L40 20 L55 20 Z" fill="#C4973A" opacity="0.7"/>
+    <path d="M10 30 Q30 10 60 8 Q90 10 110 30" stroke="#C4973A" stroke-width="0.5" fill="none" opacity="0.4"/>
+    <path d="M10 32 Q30 52 60 54 Q90 52 110 32" stroke="#C4973A" stroke-width="0.5" fill="none" opacity="0.4"/>
+    <circle cx="10" cy="31" r="2" fill="#C4973A" opacity="0.5"/>
+    <circle cx="110" cy="31" r="2" fill="#C4973A" opacity="0.5"/>
+  </svg>
+  <div class="hero-tag">Heirloom Jewellery · Modern Royalty</div>
+  <h1 class="hero-title">House <em>of</em><br>Talat</h1>
+  <p class="hero-sub">Defined by Elegance</p>
+  <div class="hero-divider">
+    <div class="hero-divider-line"></div>
+    <div class="hero-divider-gem"></div>
+    <div class="hero-divider-line"></div>
+  </div>
+  <div class="hero-btns">
+    <a href="#collections" class="btn-primary">Explore Collection</a>
+    <a href="#how-to-order" class="btn-outline">How to Order</a>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">✈️</span><span class="trust-text">Worldwide Shipping</span></div>
+  <div class="trust-item"><span class="trust-icon">💎</span><span class="trust-text">Heirloom Craftsmanship</span></div>
+  <div class="trust-item"><span class="trust-icon">📦</span><span class="trust-text">Luxury Packaging</span></div>
+  <div class="trust-item"><span class="trust-icon">💬</span><span class="trust-text">Personal Styling Help</span></div>
+</div>
+
+<!-- Collections -->
+<section class="section" id="collections">
+  <div class="section-header">
+    <span class="section-tag">Our Pieces</span>
+    <h2 class="section-title">The <em>Collection</em></h2>
+    <div class="section-line">
+      <div class="section-line-bar"></div>
+      <div class="section-line-gem"></div>
+      <div class="section-line-bar"></div>
+    </div>
+  </div>
+
+  <div class="shipping-banner">
+    <div class="ship-item"><strong>Free Gift Packaging</strong>On every order</div>
+    <div class="ship-item"><strong>Worldwide Shipping</strong>India · UAE · UK · USA & more</div>
+    <div class="ship-item"><strong>Easy Returns</strong>7-day return policy</div>
+    <div class="ship-item"><strong>Secure Payment</strong>UPI · Cards · Bank Transfer</div>
+  </div>
+
+  <div class="filter-wrap">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">All Pieces</button>
+    <button class="filter-btn" onclick="filterProducts('signature', this)">Signature</button>
+    <button class="filter-btn" onclick="filterProducts('regal', this)">Regal</button>
+    <button class="filter-btn" onclick="filterProducts('bridal', this)">Bridal Edit</button>
+    <button class="filter-btn" onclick="filterProducts('mughal', this)">Mughal Heritage</button>
+    <button class="filter-btn" onclick="filterProducts('contemporary', this)">Contemporary</button>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+
+    <div class="product-card" data-cat="signature" data-id="1">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-bestseller">Bestseller</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Heer Chandbali')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">Signature Collection</div>
+        <div class="product-name">Heer Chandbali</div>
+        <div class="product-desc">Kundan chandbali with black meenakari teardrop centre, hand-painted pink lotus motifs, and cascading onyx drops. A statement piece for brides and festive occasions.</div>
+        <div class="product-footer">
+          <div class="product-price">₹999</div>
+          <button class="add-btn" onclick="openWhatsApp('Heer Chandbali')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="regal" data-id="2">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-new">Popular</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Noor Jahan Jhumka')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">The Regal Collection</div>
+        <div class="product-name">Noor Jahan Jhumka</div>
+        <div class="product-desc">Kundan jhumka with pearl-set gold leaf lattice body and cascading baroque pearl drops. Inspired by Mughal court jewellery, reimagined for the modern bride.</div>
+        <div class="product-footer">
+          <div class="product-price">₹899</div>
+          <button class="add-btn" onclick="openWhatsApp('Noor Jahan Jhumka')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="bridal" data-id="3">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-bridal">Bridal</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Emerald Lotus Chandbali')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">Bridal Edit</div>
+        <div class="product-name">Emerald Lotus Chandbali</div>
+        <div class="product-desc">Majestic round chandbali with white meenakari base, emerald green lotus motifs, and trailing emerald drops. For the bride who wants timeless grandeur.</div>
+        <div class="product-footer">
+          <div class="product-price">₹999</div>
+          <button class="add-btn" onclick="openWhatsApp('Emerald Lotus Chandbali')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="signature" data-id="4">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-new">New In</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Emerald Dew Drops')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">Signature Collection</div>
+        <div class="product-name">Emerald Dew Drops</div>
+        <div class="product-desc">Gold kundan studs with a vivid emerald cabochon centre, polki and crystal surrounds, and a delicate pearl drop. Effortlessly pairs with both formal and casual wear.</div>
+        <div class="product-footer">
+          <div class="product-price">₹599</div>
+          <button class="add-btn" onclick="openWhatsApp('Emerald Dew Drops')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="mughal" data-id="5">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-heritage">Heritage</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Aurora Stud Earrings')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">Mughal Heritage</div>
+        <div class="product-name">Aurora Stud Earrings</div>
+        <div class="product-desc">Bold round disc studs in gold with Mughal-inspired multicolour meenakari — ruby reds, emerald greens, and sapphire blues. Rich, regal, and wearable every day.</div>
+        <div class="product-footer">
+          <div class="product-price">₹599</div>
+          <button class="add-btn" onclick="openWhatsApp('Aurora Stud Earrings')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="mughal" data-id="6">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-heritage">Heritage</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Navratan Crescent Drops')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">Mughal Heritage</div>
+        <div class="product-name">Navratan Crescent Drops</div>
+        <div class="product-desc">Crescent chandbalis paved in ruby, emerald, and saffron navratan stones with gold lattice body. Each stone carries a blessing — nine gems for nine planets.</div>
+        <div class="product-footer">
+          <div class="product-price">₹699</div>
+          <button class="add-btn" onclick="openWhatsApp('Navratan Crescent Drops')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="bridal" data-id="7">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-bridal">Bridal</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Noor-e-Talat Chandeliers')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">Bridal Edit</div>
+        <div class="product-name">Noor-e-Talat Chandeliers</div>
+        <div class="product-desc">Grand multicolour kundan chandeliers with pastel meenakari petals, saffron top, and cascading pearl drops. The showstopper piece for your bridal morning.</div>
+        <div class="product-footer">
+          <div class="product-price">₹999</div>
+          <button class="add-btn" onclick="openWhatsApp('Noor-e-Talat Chandeliers')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="contemporary" data-id="8">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-new">New In</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Midnight Romance')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">Contemporary Edit</div>
+        <div class="product-name">Midnight Romance</div>
+        <div class="product-desc">Long gold tassel drops strung with six miniature hand-painted roses in red, blush, and ivory. For the modern woman who wears art on her ears.</div>
+        <div class="product-footer">
+          <div class="product-price">₹599</div>
+          <button class="add-btn" onclick="openWhatsApp('Midnight Romance')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="bridal" data-id="9">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-bridal">Bridal Set</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Zarqash Moti Set')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">Bridal Edit</div>
+        <div class="product-name">Zarqash Moti Set</div>
+        <div class="product-desc">Magnificent bridal set — elaborate gold jali chandbali earrings with ruby, emerald, and pearl accents. Includes matching maang tikka. Complete bridal glory.</div>
+        <div class="product-footer">
+          <div class="product-price">₹1299</div>
+          <button class="add-btn" onclick="openWhatsApp('Zarqash Moti Set')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="mughal" data-id="10">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-heritage">Heritage</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Royale Bells')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">Mughal Heritage</div>
+        <div class="product-name">Royale Bells</div>
+        <div class="product-desc">Regal gold jhumkas with a navratan flower stud top, flanked by twin peacock motifs and a deep jhumka bell. The sound of royalty with every step.</div>
+        <div class="product-footer">
+          <div class="product-price">₹899</div>
+          <button class="add-btn" onclick="openWhatsApp('Royale Bells')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="signature" data-id="11">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-new">New In</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Mehr Jhumkas')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">Signature Collection</div>
+        <div class="product-name">Mehr Jhumkas</div>
+        <div class="product-desc">Stunning gold jhumkas with a triple ruby and CZ lotus stud top, intricate jali body, and pearl-fringed bell. Grace and grandeur in every wear.</div>
+        <div class="product-footer">
+          <div class="product-price">₹999</div>
+          <button class="add-btn" onclick="openWhatsApp('Mehr Jhumkas')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="mughal" data-id="12">
+      <div class="product-img-wrap">
+        <div class="product-img-placeholder">✦</div>
+        <div class="product-badge badge-new">New In</div>
+        <div class="product-overlay"><button class="overlay-btn" onclick="openWhatsApp('Aab-e-Sona')">Enquire Now</button></div>
+      </div>
+      <div class="product-info">
+        <div class="product-collection">Mughal Heritage</div>
+        <div class="product-name">Aab-e-Sona</div>
+        <div class="product-desc">Antique gold jhumkas with a ruby and emerald flower stud, twin peacock motif body, and intricate gold filigree bell. Water of gold — poured into jewellery.</div>
+        <div class="product-footer">
+          <div class="product-price">₹599</div>
+          <button class="add-btn" onclick="openWhatsApp('Aab-e-Sona')">Order via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- How to Order -->
+<section class="how-section" id="how-to-order">
+  <div class="section-header">
+    <span class="section-tag">Simple Process</span>
+    <h2 class="section-title" style="color:var(--cream)">How to <em style="color:var(--gold-light)">Order</em></h2>
+    <div class="section-line">
+      <div class="section-line-bar"></div>
+      <div class="section-line-gem"></div>
+      <div class="section-line-bar"></div>
+    </div>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon">👀</div>
+      <div class="step-title">Browse & Choose</div>
+      <div class="step-desc">Explore our collections and find the piece that speaks to you. Each earring has full details, pricing, and photos.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon">💬</div>
+      <div class="step-title">WhatsApp or DM</div>
+      <div class="step-desc">Click "Order via WhatsApp" or DM us on Instagram @houseoftalat.in with the piece name. We'll confirm availability instantly.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon">💳</div>
+      <div class="step-title">Easy Payment</div>
+      <div class="step-desc">Pay via UPI, bank transfer, or card. We accept payments from India and internationally. Confirmation sent immediately.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <div class="step-icon">📦</div>
+      <div class="step-title">Luxury Delivery</div>
+      <div class="step-desc">Your piece is packed in our signature gift box and shipped worldwide. Tracking shared with every order. Delivered with love.</div>
+    </div>
+  </div>
+  <div class="step-cta-wrap">
+    <a href="https://wa.me/91XXXXXXXXXX?text=Hi!%20I%20want%20to%20order%20from%20House%20of%20Talat" class="btn-wa" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Start on WhatsApp
+    </a>
+    <a href="https://instagram.com/houseoftalat.in" class="btn-ig" target="_blank">DM on Instagram</a>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="testimonials-section section" id="reviews">
+  <div class="section-header">
+    <span class="section-tag">Happy Brides & Customers</span>
+    <h2 class="section-title">Their <em>Stories</em></h2>
+    <div class="section-line">
+      <div class="section-line-bar"></div>
+      <div class="section-line-gem"></div>
+      <div class="section-line-bar"></div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <span class="review-quote">"</span>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">I wore the Emerald Lotus Chandbalis for my nikah and received compliments all evening. The quality is exceptional — these are pieces I will pass down to my daughter.</div>
+      <div class="review-author">Aisha R.</div>
+      <div class="review-occasion">Nikah, Dubai · December 2024</div>
+    </div>
+    <div class="review-card">
+      <span class="review-quote">"</span>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">Ordered the Heer Chandbali from the UK and it arrived beautifully packaged within a week. The photos don't do it justice — it's even more stunning in person.</div>
+      <div class="review-author">Sana M.</div>
+      <div class="review-occasion">Wedding Guest, London · January 2025</div>
+    </div>
+    <div class="review-card">
+      <span class="review-quote">"</span>
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">The team helped me choose the perfect earring for my lehenga over WhatsApp. Such a personal, warm experience. The Noor-e-Talat Chandeliers were made for my bridal look.</div>
+      <div class="review-author">Zara K.</div>
+      <div class="review-occasion">Bride, Lahore · March 2025</div>
+    </div>
+  </div>
+  <div class="reviews-count">Trusted by 500+ brides and jewellery lovers across India, UAE, UK & beyond</div>
+</section>
+
+<!-- About -->
+<section class="about-section section" id="about">
+  <div class="about-inner">
+    <div class="section-header">
+      <span class="section-tag">Our Story</span>
+      <h2 class="section-title">The House <em>Behind</em> the Jewels</h2>
+      <div class="section-line">
+        <div class="section-line-bar"></div>
+        <div class="section-line-gem"></div>
+        <div class="section-line-bar"></div>
+      </div>
+    </div>
+    <p class="about-body">Every piece at House of Talat is born from a belief — that a woman deserves to feel like royalty, not just on her wedding day, but every time she puts on something beautiful.</p>
+    <p class="about-detail">We create heirloom jewellery that sits at the intersection of Mughal heritage and modern elegance. Each earring is handcrafted with kundan, meenakari, polki, and precious stones — techniques passed down through generations of master artisans. Bold. Timeless. Iconic. Made to be worn, cherished, and passed on.</p>
+    <a href="https://wa.me/91XXXXXXXXXX?text=Hi!%20I%27d%20love%20to%20know%20more%20about%20House%20of%20Talat" class="btn-primary" style="display:inline-block; margin-top: 8px;">Get Personal Styling Help</a>
+    <div class="about-stats">
+      <div>
+        <span class="about-stat-num">500+</span>
+        <span class="about-stat-label">Happy customers</span>
+      </div>
+      <div>
+        <span class="about-stat-num">15+</span>
+        <span class="about-stat-label">Countries shipped</span>
+      </div>
+      <div>
+        <span class="about-stat-num">100%</span>
+        <span class="about-stat-label">Handcrafted</span>
+      </div>
+      <div>
+        <span class="about-stat-num">4.9★</span>
+        <span class="about-stat-label">Average rating</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">House <span>of</span> Talat</div>
+      <div class="footer-tagline">Defined by Elegance</div>
+      <p class="footer-desc">Heirloom jewellery crafted for the modern woman. Worldwide shipping. Every piece packaged with love.</p>
+      <div class="footer-social">
+        <a href="https://wa.me/91XXXXXXXXXX" class="social-btn" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://instagram.com/houseoftalat.in" class="social-btn" target="_blank">Instagram</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="#collections">All Pieces</a></li>
+        <li><a href="#collections">Bridal Edit</a></li>
+        <li><a href="#collections">Mughal Heritage</a></li>
+        <li><a href="#collections">Contemporary Edit</a></li>
+        <li><a href="#collections">New Arrivals</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Information</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#how-to-order">How to Order</a></li>
+        <li><a href="#reviews">Customer Reviews</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Return Policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/91XXXXXXXXXX">WhatsApp Us</a></li>
+        <li><a href="https://instagram.com/houseoftalat.in">@houseoftalat.in</a></li>
+        <li><a href="#">houseoftalat.in@gmail.com</a></li>
+        <li style="color:var(--gray); font-size:12px; margin-top:8px;">Ships from India<br>Worldwide delivery</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 House of Talat · Defined by Elegance · India</div>
+    <div class="footer-policy">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Returns Policy</a>
+      <a href="#">Shipping Info</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function filterProducts(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.product-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function openWhatsApp(productName) {
+    const msg = encodeURIComponent(`Hi! I'm interested in ordering the *${productName}* from House of Talat. Could you please help me with availability and payment details?`);
+    window.open(`https://wa.me/91XXXXXXXXXX?text=${msg}`, '_blank');
+  }
+</script>
+</body>
+</html>
